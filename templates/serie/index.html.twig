@@ -9,9 +9,9 @@
         <thead>
             <tr>
                 <th>Id</th>
-                <th>Titre</th>
-                <th>Nbr_saison</th>
+                <th>Nom</th>
                 <th>Image</th>
+                <th>Nbr_saison</th>
                 <th>actions</th>
             </tr>
         </thead>
@@ -19,12 +19,12 @@
         {% for serie in series %}
             <tr>
                 <td>{{ serie.id }}</td>
-                <td>{{ serie.titre }}</td>
-                <td>{{ serie.nbrSaison }}</td>
+                <td>{{ serie.nom }}</td>
                 <td>{{ serie.image }}</td>
+                <td>{{ serie.nbrSaison }}</td>
                 <td>
-                    <a href="{{ path('serie_show', {'id': serie.id}) }}">show</a>
-                    <a href="{{ path('serie_edit', {'id': serie.id}) }}">edit</a>
+                    <a href="{{ path('serie_show', {'slug': serie.slug}) }}">show</a>
+                    <a href="{{ path('serie_edit', {'slug': serie.slug}) }}">edit</a>
                 </td>
             </tr>
         {% else %}

@@ -10,9 +10,9 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
-/**
- * @Route("/user/serie")
- */
+    /**
+     * @Route("/serie")
+     */
 class SerieController extends AbstractController
 {
     /**
@@ -49,17 +49,17 @@ class SerieController extends AbstractController
     }
 
     /**
-     * @Route("/{id}", name="serie_show", methods={"GET"})
+     * @Route("/{slug}", name="serie_show", methods={"GET"})
      */
     public function show(Serie $serie): Response
-    {
+    { 
         return $this->render('serie/show.html.twig', [
             'serie' => $serie,
         ]);
     }
 
     /**
-     * @Route("/{id}/edit", name="serie_edit", methods={"GET","POST"})
+     * @Route("/{slug}/edit", name="serie_edit", methods={"GET","POST"})
      */
     public function edit(Request $request, Serie $serie): Response
     {
@@ -91,4 +91,5 @@ class SerieController extends AbstractController
 
         return $this->redirectToRoute('serie_index');
     }
+    
 }

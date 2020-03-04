@@ -3,7 +3,7 @@
 {% block title %}Serie{% endblock %}
 
 {% block body %}
-    <h1>{{ serie.titre }}</h1>
+    <h1>Serie</h1>
 
     <table class="table">
         <tbody>
@@ -12,23 +12,28 @@
                 <td>{{ serie.id }}</td>
             </tr>
             <tr>
-                <th>Titre</th>
-                <td>{{ serie.titre }}</td>
-            </tr>
-            <tr>
-                <th>Nbr_saison</th>
-                <td>{{ serie.nbrSaison }}</td>
+                <th>Nom</th>
+                <td>{{ serie.nom }}</td>
             </tr>
             <tr>
                 <th>Image</th>
                 <td>{{ serie.image }}</td>
             </tr>
+            <tr>
+                <th>Nbr_saison</th>
+                <td>{{ serie.nbrSaison }}</td>
+            </tr>
         </tbody>
     </table>
+    {% if serie.nbrSaison > 0 %}
+	    {% for i in 1..serie.nbrSaison %}
+		    <a href="{{ path('saison',{'slug': serie.slug}) }}">Saison {{i}}</a> 
+	    {% endfor %}
+    {% endif %}
 
     <a href="{{ path('serie_index') }}">back to list</a>
 
-    <a href="{{ path('serie_edit', {'id': serie.id}) }}">edit</a>
+    <a href="{{ path('serie_edit', {'slug': serie.slug}) }}">edit</a>
 
     {{ include('serie/_delete_form.html.twig') }}
 {% endblock %}

@@ -1,0 +1,24 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello SaisonController!{% endblock %}
+
+{% block body %}
+<table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>numeroSaison</th>
+                <th>nbrEpisode</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for saison in saisons %}
+                <tr>
+                    <td>{{ saison.id }}</td>
+                    <td>{{ saison.numeroSaison }}</td>
+                    <td>{{ saison.nbrEpisode }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+</table>
+{% endblock %}
